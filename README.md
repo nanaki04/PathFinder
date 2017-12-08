@@ -54,7 +54,7 @@ end
 ```
 
 Note that for communicating with different applications on other nodes, the PathFinder
-module must be installed and setup as received.
+module must be installed and setup as receiver.
 
 Alternatively you can simply start a Task.Supervisor with the name PathFinder.Destination manually.
 
