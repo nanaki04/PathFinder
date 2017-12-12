@@ -185,8 +185,8 @@ defmodule PathFinder do
     arrive update_in(state.destination, &(Tuple.append &1, []))
   end
 
-  defp arrive(%{destination: {:self, module, function, args}} = state) do
-    %{state | result: apply(module, function, args)}
+  defp arrive(%{destination: {:self, module, function, args}, gifts: gifts} = state) do
+    %{state | result: apply(module, function, gifts ++ args)}
   end
 
   defp arrive(%{destination: {node, module, function, args}, gifts: gifts} = state) do
