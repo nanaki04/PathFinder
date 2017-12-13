@@ -107,7 +107,8 @@ defmodule PathFinder do
   @type clues :: %PathFinder{}
   @type gifts :: [any]
   @type spoils :: any
-  @callback follow(PathFinder.Footprints.footprint, PathFinder.Breadcrums.breadcrum, gifts) :: spoils
+  # TODO make follow overridable in a plausible way
+  # @callback follow(PathFinder.Footprints.footprint, PathFinder.Breadcrums.breadcrum, gifts) :: spoils
 
   @doc false
   defmacro __using__(opts) do
