@@ -162,7 +162,6 @@ defmodule PathFinder do
   @spec follow(clues) :: spoils
   def follow(state) do
     state.gatekeepers
-    |> Enum.reverse
     |> Enum.reduce(&follow_footprint/1, &(apply &1, :inspect, [&2]))
     |> Kernel.apply([state])
     |> Map.get(:result)
