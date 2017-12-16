@@ -192,7 +192,7 @@ defmodule PathFinder do
   defp arrive(%{destination: {node, module, function, args}, gifts: gifts} = state) do
     Task.Supervisor.async({PathFinder.Destination, node}, module, function, gifts ++ args)
     |> Task.await
-    |> (fn {:ok, result} -> %{state | result: result} end).()
+    |> (fn result -> %{state | result: result} end).()
   end
 
   defp retry(%{footprint: :fallback, breadcrum: :fallback, gifts: gifts} = state) do
