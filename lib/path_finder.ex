@@ -190,7 +190,7 @@ defmodule PathFinder do
   end
 
   defp arrive(%{destination: {node, module, function, args}, gifts: gifts} = state) do
-    Task.Supervisor.async({PathFinder.Task.Supervisor, node}, module, function, gifts ++ args)
+    Task.Supervisor.async({PathFinder.Destination, node}, module, function, gifts ++ args)
     |> Task.await
     |> (fn {:ok, result} -> %{state | result: result} end).()
   end
